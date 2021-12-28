@@ -130,15 +130,17 @@ public class OpcUaClientService {
         DataValue nowValue = new DataValue(new Variant(i), null, null);
         //写入节点数据
         StatusCode statusCode = client.writeValue(nodeId, nowValue).join();
-        System.out.println("结果：" + statusCode.isGood());
+        //System.out.println("结果：" + statusCode.isGood());
     }
-    public static void writeNodeValue(OpcUaClient client,NodeId nodeId,int value) throws Exception {
-        int i = value;
+    public static void writeNodeValue(OpcUaClient client,NodeId nodeId,String value) throws Exception {
+        String i = value;
         //创建数据对象,此处的数据对象一定要定义类型，不然会出现类型错误，导致无法写入
         DataValue nowValue = new DataValue(new Variant(i), null, null);
         //写入节点数据
         StatusCode statusCode = client.writeValue(nodeId, nowValue).join();
-        System.out.println("结果：" + statusCode.isGood());
+        if(!statusCode.isGood()){
+            System.out.println("修改節點："+nodeId+", 结果：" + statusCode.isGood());
+        }
     }
 
 
