@@ -26,7 +26,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 @Data
 public class OpcUaClientService {
     private static Logger logger = LoggerFactory.getLogger(OpcUaClientService.class);
-    private final static String endPointUrl = "opc.tcp://LAPTOP-2U8572UR:53530/OPCUA/SimulationServer";
+    public static String endPointUrl;
   //  private final static String endPointUrl =  "opc.tcp://ubuntu:4840/";
 
     public static OpcUaClient opcUaClient;
